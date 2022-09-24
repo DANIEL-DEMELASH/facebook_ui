@@ -10,6 +10,7 @@ class Palette {
   );
 
   static const Color online = Color(0xFF4BCB1F);
+  static const Color facebookGrey = Color(0xFFf0f2f5);
 
   static const LinearGradient storyGradient = LinearGradient(
     begin: Alignment.topCenter,
