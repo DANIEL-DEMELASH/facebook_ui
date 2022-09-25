@@ -2,6 +2,8 @@ import 'package:facebook_responsive_ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../widgets/widgets.dart';
+
 class NavScreen extends StatefulWidget {
   const NavScreen({super.key});
 
@@ -19,54 +21,26 @@ class _NavScreenState extends State<NavScreen> {
     const Scaffold(),
   ];
 
-  final List<Tab> _tabs = [
-    Tab(
-        icon: Icon(
-      Icons.home,
-      color: Colors.grey[600],
-    )),
-    Tab(
-        icon: Icon(
-      Icons.ondemand_video,
-      color: Colors.grey[600],
-    )),
-    Tab(
-        icon: Icon(
-      MdiIcons.accountCircleOutline,
-      color: Colors.grey[600],
-    )),
-    Tab(
-        icon: Icon(
-      MdiIcons.accountGroupOutline,
-      color: Colors.grey[600],
-    )),
-    Tab(
-        icon: Icon(
-      MdiIcons.bellOutline,
-      color: Colors.grey[600],
-    )),
-    Tab(
-        icon: Icon(
-      Icons.menu,
-      color: Colors.grey[600],
-    )),
+  final List<IconData> _icons = [
+    Icons.home,
+    Icons.ondemand_video,
+    MdiIcons.accountCircleOutline,
+    MdiIcons.accountGroupOutline,
+    MdiIcons.bellOutline,
+    Icons.menu,
   ];
 
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: _screens.length,
+      length: _icons.length,
       child: Scaffold(
-          body: _screens[_selectedIndex],
-          bottomNavigationBar: TabBar(
-            tabs: _tabs,
-            onTap: ((value) {
-              setState(() {
-                _selectedIndex = value;
-              });
-            }),
-          )),
+          body: IndexedStack(index: _selectedIndex, children: _screens),
+          bottomNavigationBar: CustomTabBar(
+              icons: _icons,
+              selectedIndex: _selectedIndex,
+              onTap: (index) => setState((() => _selectedIndex = index)))),
     );
   }
 }

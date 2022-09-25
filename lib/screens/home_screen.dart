@@ -15,29 +15,30 @@ class HomeScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: Colors.white,
-            centerTitle: false,
-            floating: true,
-            title: const Text(
-              'facebook',
-              style: TextStyle(
-                  color: Palette.facebookBlue,
-                  fontSize: 28.0,
-                  letterSpacing: -1.2,
-                  fontWeight: FontWeight.bold),
-            ),
-            systemOverlayStyle: SystemUiOverlayStyle.dark,
-            actions: [
-              CircleButton(
-                  icon: Icons.search,
-                  iconSize: 30.0,
-                  onPressed: () => print('search button')),
-              CircleButton(
-                  icon: MdiIcons.facebookMessenger,
-                  iconSize: 30.0,
-                  onPressed: () => print('messenger button')),
-            ],
-          ),
+                  backgroundColor: Colors.white,
+                  centerTitle: false,
+                  floating: true,
+                  title: const Text(
+                    'facebook',
+                    style: TextStyle(
+                        color: Palette.facebookBlue,
+                        fontSize: 28.0,
+                        letterSpacing: -1.2,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  systemOverlayStyle: SystemUiOverlayStyle.dark,
+                  actions: [
+                    CircleButton(
+                        icon: Icons.search,
+                        iconSize: 30.0,
+                        onPressed: () => print('search button')),
+                    CircleButton(
+                        icon: MdiIcons.facebookMessenger,
+                        iconSize: 30.0,
+                        onPressed: () => print('messenger button')),
+                  ],
+                )
+              ,
           const SliverToBoxAdapter(
             child: CreatePostContainer(currentUser: currentUser),
           ),
